@@ -1,5 +1,10 @@
+language: node_js
+node_js:
+  - 13
+
 services:
   - docker
+  
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker built -t $DOCKERHUB_USERNAME/udagram-api-feed:v1 ./udagram-api-feed
